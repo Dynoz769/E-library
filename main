@@ -1,0 +1,71 @@
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Sidebar, SidebarItem } from "@/components/ui/sidebar";
+import { Input } from "@/components/ui/input";
+import { Search } from "lucide-react";
+
+const Dashboard = () => {
+  return (
+    <div className="flex h-screen">
+      {/* Sidebar */}
+      <Sidebar>
+        <SidebarItem icon="home" label="Papan Pemuka" active />
+        <SidebarItem icon="search" label="Carian Buku" />
+        <SidebarItem icon="book" label="Kategori Buku" />
+        <SidebarItem icon="list" label="Senarai Pinjaman" />
+        <SidebarItem icon="user" label="Profil Pengguna" />
+      </Sidebar>
+
+      {/* Main Content */}
+      <div className="flex-1 p-6 bg-gray-100">
+        <h1 className="text-2xl font-bold mb-4">Papan Pemuka</h1>
+
+        {/* Search Bar */}
+        <div className="flex items-center bg-white p-3 rounded-lg shadow mb-6">
+          <Search className="text-gray-500" />
+          <Input placeholder="Cari buku berdasarkan tajuk, pengarang..." className="ml-2 flex-1" />
+        </div>
+
+        {/* Book Statistics */}
+        <div className="grid grid-cols-3 gap-4">
+          <Card>
+            <CardContent>
+              <h2 className="text-xl font-semibold">Total Buku</h2>
+              <p className="text-3xl font-bold">1200</p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent>
+              <h2 className="text-xl font-semibold">Buku Dipinjam</h2>
+              <p className="text-3xl font-bold">300</p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent>
+              <h2 className="text-xl font-semibold">Buku Tersedia</h2>
+              <p className="text-3xl font-bold">900</p>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Featured Book */}
+        <div className="mt-6">
+          <h2 className="text-xl font-semibold mb-2">Buku Pilihan Minggu Ini</h2>
+          <Card>
+            <CardContent className="flex items-center">
+              <img src="/book-cover.jpg" alt="Buku Pilihan" className="w-24 h-32 mr-4" />
+              <div>
+                <h3 className="text-lg font-bold">Judul Buku</h3>
+                <p className="text-sm text-gray-600">Pengarang: John Doe</p>
+                <Button className="mt-2">Pinjam Sekarang</Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Dashboard;
